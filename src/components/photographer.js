@@ -15,8 +15,8 @@ const Photographer = ({data}) => {
 export default Photographer;
 
 export const PhotographerQuery = graphql`
-query($initials: String!) {
-  contentfulAuthors(initials: {eq: $initials}) {
+query($slug: String!) {
+  contentfulAuthors(slug: {eq: $slug}) {
     biography {
       biography
     }

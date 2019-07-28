@@ -10,7 +10,7 @@ exports.createPages = ({graphql, actions}) => {
           allContentfulAuthors {
             edges {
               node {
-                initials
+                slug
               }
             }
           }
@@ -19,12 +19,12 @@ exports.createPages = ({graphql, actions}) => {
         if (result.errors) reject(result.errors);
 
         result.data.allContentfulAuthors.edges.forEach((edge) => {
-          const slug = edge.node.initials.split(',')[0];
+          const { slug } = edge.node;
           createPage ({
             path: slug,
             component: photographer,
             context: {
-              initials: edge.node.initials,
+              slug,
             },
           });
         });
