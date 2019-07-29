@@ -1,0 +1,20 @@
+html {
+  font-size: 22px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #001289;
+  margin-bottom: 45px;
+}
+
+p {
+  font-size: 1rem;
+  color: #0D25B7;
+}
+
+strong {
+  font-weight: bold;
+  color: #001289;
+}
