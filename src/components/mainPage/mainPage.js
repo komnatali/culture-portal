@@ -24,8 +24,20 @@ const MainPage = ({ data }) => {
         <div style={{ width: '90%', marginLeft: '10%' }}>{RenderRichText(MainPage.desc.json)}</div>
       </Container>
     </Grid>
-    {/* 
-    <div>{RenderRichText(MainPage.developerTeamDesc.json)}</div>
+    <Grid container
+      direction="column"
+      justify="center"
+      alignItems="flex-start"
+      style={{ width: '100%', height: '65vh', background: `linear-gradient(to bottom, rgba(236,245,255,1) 45%, rgba(236,245,255,0) 45%)` }}>
+      <Container maxWidth='md'>
+        {RenderRichText(MainPage.authorOfTheDayDesc.json)}
+        <Link to="/photographers-list/">
+          <Card style={{ height: '250px' }}>
+          </Card>
+        </Link>
+      </Container>
+    </Grid>
+    {/* <div>{RenderRichText(MainPage.developerTeamDesc.json)}</div>
     <ul>{MainPage.githubLinks.map(link => <li><a href={link}>{link}</a></li>)}</ul> */}
     <Link to="/photographers-list/">Go to photographers list page</Link>
   </React.Fragment>)

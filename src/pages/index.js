@@ -22,6 +22,9 @@ query{
       desc {
         json
       }
+      authorOfTheDayDesc {
+        json
+      }
       developerTeamDesc {
         json
       }
@@ -43,6 +46,9 @@ query{
         }
       }
       desc {
+        json
+      }
+      authorOfTheDayDesc {
         json
       }
       developerTeamDesc {
