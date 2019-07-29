@@ -1,5 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
+import { Helmet } from "react-helmet";
+import * as CSS from "./style.css"
 
 const MainPage = () => (
   <React.Fragment>
