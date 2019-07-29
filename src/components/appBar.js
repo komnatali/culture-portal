@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "gatsby"
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -57,8 +58,11 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: 200,
+    [theme.breakpoints.down('xl')]: {
+      width: 120,
+      '&:focus': {
+        width: 200,
+      }
     },
   },
   sectionDesktop: {
