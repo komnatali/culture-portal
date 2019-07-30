@@ -1,73 +1,90 @@
+
+
+
+
+
+/*GENERIC STYLES*/
+
 html {
   font-size: 22px;
   font-family: 'Roboto', sans-serif
 }
 
-h1 {
+#MainPage {
+  width: 100vw;
+}
+
+#MainPage h1 {
   font-size: 3rem;
   font-weight: bold;
   color: #001289;
   margin-bottom: 45px;
 }
 
-h2 {
+#MainPage h2 {
   font-size: 2rem;
   font-weight: bold;
   color: #001289;
   margin-bottom: 25px;
 }
 
-h3 {
+#MainPage h3 {
   font-size: 1rem;
   font-weight: bold;
   color: #001289;
   margin-bottom: 5px;
 }
 
-p,span {
+#MainPage p, #MainPage span {
   font-size: 1rem;
   color: #0D25B7;
   font-family: 'Times New Roman', serif
 }
 
-strong {
+#MainPage strong {
   font-weight: bold;
   color: #001289;
 }
 
-.devTeamPart {
-  margin: 6% 5% 1% 0;
+
+
+
+
+
+/*SPECIAL STYLES*/
+#MainPage .devTeamPart {
+  margin: 6% 4% 1% 0;
   position: relative;
 }
 
-.devTeamPhoto {
+#MainPage .devTeamPhoto {
   --width: 10vw;
   width: var(--width) !important;
   height: auto !important;
 }
 
-.githubLink {
+#MainPage .githubLink {
   display: block;
   width: 50px;
   height: 50px;
   position: absolute;
   bottom: 25%;
-  right: 10%;
+  left: 8vw;
 }
 
-.githubLink img {
+#MainPage .githubLink img {
   width: 50px;
   height: 50px;
 }
 
-.teamPartDesc {
+#MainPage .teamPartDesc {
   text-align: center;
   position: relative;
   top: 10px;
   left: -5px;
 }
 
-.right-aligned-wide-btn {
+#MainPage .right-aligned-wide-btn {
   width: 55%;
   position: relative;
   left: 45%;

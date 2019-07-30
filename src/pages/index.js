@@ -1,10 +1,18 @@
 import React from "react"
+import '../components/reset.css'
 
-import MainPage from "../components/mainPage/"
+import MainPage from "../components/MainPage/"
 
-const IndexPage = ({ data }) => <MainPage data={data}></MainPage>
+const IndexPage = ({ data }) =>
+  (<>
+    {/*HEADER NAVIGATION HERE*/}
+    <MainPage data={data}></MainPage>
+    {/*FOOTER NAVIGATION HERE*/}
+  </>)
 
 export default IndexPage
+
+
 
 export const MainPageQuery = graphql`
 query{
@@ -100,6 +108,6 @@ query{
 
       node_locale
     }
-  }
+}
 }
 `
