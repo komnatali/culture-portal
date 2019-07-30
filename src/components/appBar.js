@@ -117,6 +117,7 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={handleMenuClose}>En</MenuItem>
       <MenuItem onClick={handleMenuClose}>Ru</MenuItem>
+      <MenuItem onClick={handleMenuClose}>By</MenuItem>
     </Menu>
   );
 

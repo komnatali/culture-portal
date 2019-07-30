@@ -1,3 +1,16 @@
 html {
   font-family: 'Roboto', sans-serif;
 }
+body{
+  margin: 0 auto;
+}
+.authors-list li{
+  
+  list-style-type: none;
+  
+}
+.authors-list a{
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  color: rgb(53, 52, 52);
+}

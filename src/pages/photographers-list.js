@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import PrimarySearchAppBar from '../components/appBar';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 const photographersList = ({ data }) => {
   const englishEdges = data.english.edges
@@ -10,18 +12,18 @@ const photographersList = ({ data }) => {
 
     return (
       <li key={index.toString()}>
-        <Link to={slug}> Link to {edge.node.initials}</Link>
+        <Link to={slug}>{edge.node.initials}</Link>
       </li>
     )
   })
 
   return (
     <React.Fragment>
-      
       <PrimarySearchAppBar />
-      
       <h1>Страница со списком фотографов</h1>
+      <Grid>
       <ul className="authors-list">{authorsList}</ul>
+      </Grid>
       <Link to="/">Go back to the homepage</Link>
     </React.Fragment>
   )
