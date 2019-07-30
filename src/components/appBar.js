@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "gatsby"
+import { Link } from 'gatsby';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,31 +13,35 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import LanguageIcon from '@material-ui/icons/Language';
+import Avatar from '@material-ui/core/Avatar';
+import Logo from '../images/photo-icon.png';
 
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
+  // menuButton: {
+  //   marginRight: theme.spacing(2),
+  // },
+  // title: {
+  //   display: 'none',
+  //   [theme.breakpoints.up('sm')]: {
+  //     display: 'block',
+  //   },
+  // },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    [theme.breakpoints.up('lg')]: {
+      backgroundColor: fade(theme.palette.common.white, 0.15),
+    },
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('xs')]: {
       marginLeft: theme.spacing(3),
       width: 'auto',
     },
@@ -58,8 +62,14 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.down('xl')]: {
+    [theme.breakpoints.up('md')]: {
       width: 120,
+      '&:focus': {
+        width: 200,
+      }
+    },
+    [theme.breakpoints.down('md')]: {
+      width: 0,
       '&:focus': {
         width: 200,
       }
@@ -76,6 +86,13 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
+  },
+  bigAvatar: {
+    margin: 5,
+    marginLeft: 0,
+    width: 50,
+    height: 50,
+    marginRight: theme.spacing(2),
   },
 }));
 
@@ -148,14 +165,17 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          <Link to="/">
+            <Avatar alt="Logo" src={Logo} className={classes.bigAvatar} />
+          </Link>
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography className={classes.title} variant="h6" noWrap>
             Photographers of Belarus
           </Typography>
