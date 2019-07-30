@@ -5,8 +5,8 @@ body{
   margin: 0 auto;
 }
 .authors-list li{
-  
   list-style-type: none;
+  width: 250px;
   
 }
 .authors-list a{

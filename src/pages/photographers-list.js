@@ -11,9 +11,11 @@ const photographersList = ({ data }) => {
     const { slug } = edge.node
 
     return (
-      <li key={index.toString()}>
+      <Grid item xs='12'>
+        <Paper className='paper' key={index.toString()}>
         <Link to={slug}>{edge.node.initials}</Link>
-      </li>
+        </Paper>
+      </Grid>
     )
   })
 
@@ -21,7 +23,11 @@ const photographersList = ({ data }) => {
     <React.Fragment>
       <PrimarySearchAppBar />
       <h1>Страница со списком фотографов</h1>
-      <Grid>
+      <Grid container
+            direction="column"
+            justify="flex-start"
+            alignItems="flex-start"
+            >
       <ul className="authors-list">{authorsList}</ul>
       </Grid>
       <Link to="/">Go back to the homepage</Link>
