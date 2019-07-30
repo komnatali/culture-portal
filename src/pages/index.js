@@ -6,12 +6,13 @@ const IndexPage = ({ data }) => <MainPage data={data}></MainPage>
 
 export default IndexPage
 
-export const Query = graphql`
+export const MainPageQuery = graphql`
 query{
   english: allContentfulMainPage(filter: { node_locale: { eq: "en-US" } }) {
     nodes{
       title
       mainPicture {
+        title
         resolutions(width: 1600){
         width
         height
@@ -28,6 +29,26 @@ query{
       developerTeamDesc {
         json
       }
+      githubIcon {
+        title
+        resolutions(width: 200){
+          width
+          height
+          src
+          srcSet
+        }
+      }
+      teamPhotos {
+        title
+        resolutions(width: 500){
+          width
+          height
+          src
+          srcSet
+        }
+      }
+      devPartNames
+      devPartDesc
       githubLinks
 
       node_locale
@@ -38,6 +59,7 @@ query{
     nodes{
       title
       mainPicture {
+        title
         resolutions(width: 1600){
         width
         height
@@ -54,6 +76,26 @@ query{
       developerTeamDesc {
         json
       }
+      githubIcon {
+        title
+        resolutions(width: 200){
+          width
+          height
+          src
+          srcSet
+        }
+      }
+      teamPhotos {
+        title
+        resolutions(width: 500){
+          width
+          height
+          src
+          srcSet
+        }
+      }
+      devPartNames
+      devPartDesc
       githubLinks
 
       node_locale

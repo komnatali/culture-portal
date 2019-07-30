@@ -9,7 +9,7 @@ const BiographyTimeline = ({ biographyList }) => {
     const firstLetter = bioItem.search(/[a-zа-я]/i)
     const dateText = bioItem.slice(0, firstLetter - 1)
     const bioText = bioItem.slice(firstLetter)
-    
+
     const colorOfDate = colorsOfDates[index % colorsOfDates.length]
 
     return (

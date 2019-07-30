@@ -16,6 +16,13 @@ h2 {
   margin-bottom: 25px;
 }
 
+h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #001289;
+  margin-bottom: 5px;
+}
+
 p {
   font-size: 1rem;
   color: #0D25B7;
@@ -24,4 +31,50 @@ p {
 strong {
   font-weight: bold;
   color: #001289;
+}
+
+.devTeamPart {
+  margin: 6% 5% 1% 0;
+  position: relative;
+}
+
+.devTeamPhoto {
+  --width: 10vw;
+  width: var(--width) !important;
+  height: auto !important;
+}
+
+.githubLink {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 25%;
+  right: 10%;
+}
+
+.githubLink img {
+  width: 50px;
+  height: 50px;
+}
+
+.teamPartDesc {
+  text-align: center;
+  position: relative;
+  top: 10px;
+  left: -5px;
+}
+
+.right-aligned-wide-btn {
+  width: 55%;
+  position: relative;
+  left: 45%;
+  justify-content: flex-start !important;
+  padding-left: 10px;
+  background-color: #BDCDE6 !important;
+  border-radius: 0 !important;
+  font-family: inherit !important;
+  text-transform: none !important;
+  color: #0D25B7 !important;
+  margin-top: 20px !important;
 }
