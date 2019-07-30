@@ -76,9 +76,6 @@ const MainPage = ({ data }) => {
         </Grid>
       </Container>
     </div>
-    {/* <div></div>
-    <ul>{MainPage.githubLinks.map(link => <li><a href={link}>{link}</a></li>)}</ul> */}
-    <Link to="/photographers-list/"> Go to photographers list page</Link>
   </React.Fragment>)
 }
 
