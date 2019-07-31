@@ -22,7 +22,8 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     '&:hover': {
       color: '#e7fcff',
-    }
+    },
+    minWidth: 0,
   },
   search: {
     position: 'relative',
@@ -66,7 +67,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('md')]: {
       width: 0,
       '&:focus': {
-        width: 200,
+        width: 82,
       }
     },
   },
