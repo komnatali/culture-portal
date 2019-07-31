@@ -1,8 +1,7 @@
-import { Link } from "gatsby";
 import React from "react";
 import BiographyTimeline from "./biographyTimeline";
 import Layout from "./layout";
-
+import { graphql } from 'gatsby';
 
 const Photographer = ({ data }) => {
   const authorInfo = data.contentfulAuthors;
