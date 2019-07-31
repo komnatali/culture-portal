@@ -1,7 +1,7 @@
 const path = require('path');
 
-exports.createPages = ({graphql, actions}) => {
-  const {createPage} = actions;
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
   return new Promise((resolve, reject) => {
     const photographer = path.resolve('src/components/photographer.js');
     resolve(
@@ -20,7 +20,7 @@ exports.createPages = ({graphql, actions}) => {
 
         result.data.allContentfulAuthors.edges.forEach((edge) => {
           const { slug } = edge.node;
-          createPage ({
+          createPage({
             path: slug,
             component: photographer,
             context: {
