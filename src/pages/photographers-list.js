@@ -1,31 +1,30 @@
 import React from "react";
 import { Link } from "gatsby";
-import PrimarySearchAppBar from '../components/appBar';
+import Layout from "../components/layout";
 
 const photographersList = ({ data }) => {
-  const englishEdges = data.english.edges
+  const englishEdges = data.english.edges;
 
   const authorsList = englishEdges.map((edge, index) => {
-    const { slug } = edge.node
+    const { slug } = edge.node;
 
     return (
       <li key={index.toString()}>
         <Link to={slug}> Link to {edge.node.initials}</Link>
       </li>
-    )
+    );
   })
 
   return (
-    <React.Fragment>
-      <PrimarySearchAppBar />
+    <Layout>
       <h1>Страница со списком фотографов</h1>
       <ul className="authors-list">{authorsList}</ul>
       <Link to="/">Go back to the homepage</Link>
-    </React.Fragment>
-  )
+    </Layout>
+  );
 }
 
-export default photographersList
+export default photographersList;
 
 export const PhotographersQuery = graphql`
   query {
