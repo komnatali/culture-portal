@@ -3,13 +3,15 @@ import React from "react"
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-const Bold = ({ children }) => <strong>{children}</strong>
-const Text = ({ children }) => <p>{children}</p>
-const HEADING_1 = ({ children }) => <h1>{children}</h1>
-const HEADING_2 = ({ children }) => <h2>{children}</h2>
-const HEADING_3 = ({ children }) => <h3>{children}</h3>
-const HEADING_4 = ({ children }) => <h4>{children}</h4>
-const HEADING_5 = ({ children }) => <h5>{children}</h5>
+import { Typography, Box } from '@material-ui/core'
+
+const Bold = ({ children }) => <Box fontWeight="fontWeightMedium" component='strong'>{children}</Box>
+const Text = ({ children }) => <Typography variant='body1'>{children}</Typography>
+const HEADING_1 = ({ children }) => <Typography variant='h1' color='primary'>{children}</Typography>
+const HEADING_2 = ({ children }) => <Typography variant='h2' color='primary'>{children}</Typography>
+const HEADING_3 = ({ children }) => <Typography variant='h3' color='primary'>{children}</Typography>
+const HEADING_4 = ({ children }) => <Typography variant='h4' color='primary'>{children}</Typography>
+const HEADING_5 = ({ children }) => <Typography variant='h5' color='primary'>{children}</Typography>
 
 const options = {
   renderMark: {

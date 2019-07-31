@@ -1,5 +1,4 @@
 import React from "react"
-import '../components/reset.css'
 
 import MainPage from "../components/MainPage/"
 import PrimarySearchAppBar from "../components/appBar"
