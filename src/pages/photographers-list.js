@@ -1,5 +1,6 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
+import PrimarySearchAppBar from '../components/appBar';
 
 const photographersList = ({ data }) => {
   const englishEdges = data.english.edges
@@ -16,6 +17,7 @@ const photographersList = ({ data }) => {
 
   return (
     <React.Fragment>
+      <PrimarySearchAppBar />
       <h1>Страница со списком фотографов</h1>
       <ul className="authors-list">{authorsList}</ul>
       <Link to="/">Go back to the homepage</Link>

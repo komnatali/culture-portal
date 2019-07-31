@@ -2,10 +2,11 @@ import React from "react"
 import '../components/reset.css'
 
 import MainPage from "../components/MainPage/"
+import PrimarySearchAppBar from "../components/appBar"
 
 const IndexPage = ({ data }) =>
   (<>
-    {/*HEADER NAVIGATION HERE*/}
+    <PrimarySearchAppBar></PrimarySearchAppBar>
     <MainPage data={data}></MainPage>
     {/*FOOTER NAVIGATION HERE*/}
   </>)

@@ -4,39 +4,34 @@
 
 
 /*GENERIC STYLES*/
-
-html {
+#MainPage {
   font-size: 22px;
   font-family: 'Roboto', sans-serif
 }
 
-#MainPage {
-  width: 100vw;
-}
-
 #MainPage h1 {
-  font-size: 3rem;
+  font-size: 3em;
   font-weight: bold;
   color: #001289;
   margin-bottom: 45px;
 }
 
 #MainPage h2 {
-  font-size: 2rem;
+  font-size: 2em;
   font-weight: bold;
   color: #001289;
   margin-bottom: 25px;
 }
 
 #MainPage h3 {
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: bold;
   color: #001289;
   margin-bottom: 5px;
 }
 
 #MainPage p, #MainPage span {
-  font-size: 1rem;
+  font-size: 1em;
   color: #0D25B7;
   font-family: 'Times New Roman', serif
 }

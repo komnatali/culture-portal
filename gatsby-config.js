@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/photo-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -34,6 +34,18 @@ module.exports = {
         accessToken: `n30_7BCShxauK7NzRhfIrHyGfNCRkVpwxvptLIrh4VI`,
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            "family": "Roboto",
+            "variants": ["300", "400", "500", "700"]
+          }
+        ],
+      },
+    },
+    `gatsby-plugin-material-ui`,
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
