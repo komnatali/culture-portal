@@ -7,7 +7,8 @@ body{
 .authors-list li{
   list-style-type: none;
   width: 250px;
-  
+  background-color: aquamarine;
+  margin: 5px;
 }
 .authors-list a{
   font-family: 'Roboto', sans-serif;

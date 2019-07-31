@@ -13,7 +13,7 @@ const photographersList = ({ data }) => {
     return (
       <Grid item xs='12'>
         <Paper className='paper' key={index.toString()}>
-        <Link to={slug}>{edge.node.initials}</Link>
+        <li><Link to={slug}>{edge.node.initials}</Link></li>
         </Paper>
       </Grid>
     )
