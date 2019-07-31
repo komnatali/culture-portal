@@ -6,12 +6,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import LanguageIcon from '@material-ui/icons/Language';
 import Avatar from '@material-ui/core/Avatar';
 import Logo from '../images/photo-icon.png';
@@ -20,15 +17,6 @@ const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
   },
-  // menuButton: {
-  //   marginRight: theme.spacing(2),
-  // },
-  // title: {
-  //   display: 'none',
-  //   [theme.breakpoints.up('sm')]: {
-  //     display: 'block',
-  //   },
-  // },
   titleLink: {
     textDecoration: 'none',
     color: 'white',
@@ -128,10 +116,6 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   }
 
-  function handleMobileMenuOpen(event) {
-    setMobileMoreAnchorEl(event.currentTarget);
-  }
-
   const menuId = 'primary-search-languages-menu';
   const renderMenu = (
     <Menu
@@ -179,22 +163,11 @@ export default function PrimarySearchAppBar() {
           <Link to="/">
             <Avatar alt="Logo" src={Logo} className={classes.bigAvatar} />
           </Link>
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton> */}
           <Link to="/photographers-list/" className={classes.titleLink}>
             <Typography className={classes.title} variant="h6" noWrap>
               Photographers of Belarus
             </Typography>
           </Link>
-          {/* <Typography className={classes.title} variant="h6" noWrap>
-            Photographers of Belarus
-          </Typography> */}
           <div className={classes.grow} />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
