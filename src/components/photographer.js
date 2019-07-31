@@ -1,20 +1,21 @@
-import { Link } from "gatsby"
-import React from "react"
-import BiographyTimeline from "./biographyTimeline"
+import React from "react";
+import BiographyTimeline from "./biographyTimeline";
+import Layout from "./layout";
+import { graphql } from 'gatsby';
 
 const Photographer = ({ data }) => {
-  const authorInfo = data.contentfulAuthors
-  const { biography } = authorInfo.biography
-  const { biographyList } = authorInfo
+  const authorInfo = data.contentfulAuthors;
+  const { biography } = authorInfo.biography;
+  const { biographyList } = authorInfo;
 
   return (
-    <div className="author-page">
+    <Layout>
       <BiographyTimeline biographyList={biographyList} />
-    </div>
-  )
+    </Layout>
+  );
 }
 
-export default Photographer
+export default Photographer;
 
 export const PhotographerQuery = graphql`
   query($slug: String!) {

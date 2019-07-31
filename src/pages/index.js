@@ -1,17 +1,16 @@
 import React from "react"
-import '../components/reset.css'
+import MainPage from "../components/mainPage/index"
+import Layout from "../components/layout";
+import { graphql } from 'gatsby';
 
-import MainPage from "../components/MainPage/"
-import PrimarySearchAppBar from "../components/appBar"
-
-const IndexPage = ({ data }) =>
-  (<>
-    <PrimarySearchAppBar></PrimarySearchAppBar>
+const IndexPage = ({ data }) => (
+  <Layout>
     <MainPage data={data}></MainPage>
     {/*FOOTER NAVIGATION HERE*/}
-  </>)
+  </Layout>
+);
 
-export default IndexPage
+export default IndexPage;
 
 
 
