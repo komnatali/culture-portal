@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
-import BiographyTimeline from "../components/biographyTimeline";
-import Layout from "../components/layout";
+import BiographyTimeline from "./biographyTimeline";
+import Layout from "./layout";
 
 
 const Photographer = ({ data }) => {
