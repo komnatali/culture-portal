@@ -19,10 +19,10 @@ const MainPage = ({ data }) => {
       arr.push(<div className='devTeamPart'>
         <Avatar className="devTeamPhoto" title={MainPage.teamPhotos[i].title} src={MainPage.teamPhotos[i].resolutions.src} alt={MainPage.teamPhotos[i].title} />
         <Link title={MainPage.githubLinks[i]} to={MainPage.githubLinks[i]} className='githubLink'>{GithubIcon}</Link>
-        <dev className='teamPartDesc'>
+        <div className='teamPartDesc'>
           <h3>{MainPage.devPartNames[i]}</h3>
           <p>{MainPage.devPartDesc[i]}</p>
-        </dev>
+        </div>
       </div>)
     }
     return <>{arr}</>;
