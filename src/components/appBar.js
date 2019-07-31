@@ -29,6 +29,13 @@ const useStyles = makeStyles(theme => ({
   //     display: 'block',
   //   },
   // },
+  titleLink: {
+    textDecoration: 'none',
+    color: 'white',
+    '&:hover': {
+      color: '#e7fcff',
+    }
+  },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -93,6 +100,10 @@ const useStyles = makeStyles(theme => ({
     width: 50,
     height: 50,
     marginRight: theme.spacing(2),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.15),
+    },
+    transition: theme.transitions.create('backgroundColor'),
   },
 }));
 
@@ -176,9 +187,14 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Link to="/photographers-list/" className={classes.titleLink}>
+            <Typography className={classes.title} variant="h6" noWrap>
+              Photographers of Belarus
+            </Typography>
+          </Link>
+          {/* <Typography className={classes.title} variant="h6" noWrap>
             Photographers of Belarus
-          </Typography>
+          </Typography> */}
           <div className={classes.grow} />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
