@@ -12,12 +12,26 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
-    minHeight: 400,
+    marginBottom: 30,
+  },
+  cardTitle: {
+    textAlign: 'center',
+    margin: 10,
+    marginBottom: 20,
+  },
+  cardDesc: {
+    // overflow: 'hidden',
+    paddingBottom: 20,
+  },
+  cardMedia: {
+    top: 0,
+    objectPosition: 'top',
   },
 });
 
 export default function PhCard(props) {
   const classes = useStyles();
+  const firstSecondNames = props.phr.initials.split(', ');
 
   function handelCardClick(e) {
     e.preventDefault();
@@ -28,6 +42,7 @@ export default function PhCard(props) {
     <Card className={classes.card} onClick={handelCardClick}>
       <CardActionArea>
         <CardMedia
+          className={classes.cardMedia}
           component="img"
           alt={props.phr.photo.title}
           height="300"
@@ -35,11 +50,12 @@ export default function PhCard(props) {
           title={props.phr.photo.title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2" style={{ textAlign: 'center' }}>
-            {props.phr.initials}
+          <Typography className={classes.cardTitle} gutterBottom variant="h5" component="h2">
+            <span style={{ fontWeight: 'bold' }}>{firstSecondNames[0]}</span><br />
+            {firstSecondNames[1]}
           </Typography>
-          <Typography variant="body1" color="textSecondary" component="p">
-            {props.phr.biography.internal.content}
+          <Typography className={classes.cardDesc} variant="body1" color="textSecondary" component="p">
+            {`${props.phr.biography.internal.content.slice(0, 100)}...`}
           </Typography>
         </CardContent>
       </CardActionArea>

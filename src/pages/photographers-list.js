@@ -14,19 +14,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 50,
     fontWeight: 700
   },
-  nameLink: {
-    textDecoration: 'none',
-    color: 'black',
-    minWidth: 0,
-  },
   authorsList: {
-    paddingInlineStart: 0,
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
   },
-  namePaper: {
-    padding: theme.spacing(3, 3),
-    margin: 15,
-    minHeight: 50,
-  }
 }));
 
 const photographersList = ({ data }) => {
@@ -37,7 +29,12 @@ const photographersList = ({ data }) => {
     const { slug } = edge.node;
 
     return (
-      <PhCard key={edge.node.initials} phr={edge.node} slug={slug}></PhCard >
+      <PhCard
+        key={edge.node.initials}
+        phr={edge.node}
+        slug={slug}
+      >
+      </PhCard >
     );
   })
 
@@ -47,7 +44,9 @@ const photographersList = ({ data }) => {
         <Typography className={classes.mainTitle} variant='h4' gutterBottom>
           Photographers of Belarus
         </Typography>
-        <ul className={classes.authorsList}>{authorsList}</ul>
+        <Container className={classes.authorsList}>
+          {authorsList}
+        </Container>
       </Container>
     </Layout>
   );
