@@ -2,7 +2,8 @@ import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import React from "react"
 import { Grid, Container, Card, Button, Avatar, Paper, Typography, Badge, Box } from "@material-ui/core"
-import { makeStyles, responsiveFontSizes } from "@material-ui/core/styles"
+import { makeStyles} from "@material-ui/core/styles"
+import shortid from 'shortid'
 
 
 import RenderRichText from '../../utils/RenderRichText'
@@ -12,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     '& p,span': {
-      fontSize: '1.3rem'
+      fontSize: '1.2rem'
     },
     [theme.breakpoints.down('sm')]: {
       '& h1': {
@@ -78,11 +79,11 @@ const MainPage = ({ data }) => {
     let arr = [];
     for (let i = 0; i < 7; i++) {
       arr.push(
-        <Grid item zeroMinWidth style={{ width: '280px', minWidth: '22%', maxWidth: '90%', marginTop: '4%' }} >
+        <Grid item key={shortid.generate()} component='li' zeroMinWidth style={{ width: '280px', minWidth: '22%', maxWidth: '90%', marginTop: '4%', listStyleType: 'none' }} >
           <Badge className={classes.fullWide} badgeContent={<a className={classes.smallBadge} title={MainPage.githubLinks[i]} href={MainPage.githubLinks[i]}>{GithubIcon}</a>}>
             <Avatar className={classes.bigAvatar} title={MainPage.teamPhotos[i].title} src={MainPage.teamPhotos[i].resolutions.src} alt={MainPage.teamPhotos[i].title} />
           </Badge>
-          <Container maxWidth='0' style={{ textAlign: 'center', padding: '3% 0 0' }}>
+          <Container maxWidth={false} style={{ textAlign: 'center', padding: '3% 0 0' }}>
             <Typography variant='h5' component='h3' color='primary'>{MainPage.devPartNames[i]}</Typography>
             <Typography variant='body1' >{MainPage.devPartDesc[i]}</Typography>
           </Container>
@@ -98,7 +99,7 @@ const MainPage = ({ data }) => {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       </Helmet>
       <Paper>
-        <Container maxWidth='0' style={{ padding: '11% 0', background: `center / cover url(${MainPage.mainPicture.resolutions.src})` }}>
+        <Container maxWidth={false} style={{ padding: '11% 0', background: `center / cover url(${MainPage.mainPicture.resolutions.src})` }}>
           <Container maxWidth='lg'>
             <Typography variant='h1' color='primary'> <Box fontWeight="fontWeightMedium" component='strong'>{MainPage.title}</Box></Typography>
             <Container style={{ marginTop: '30px' }}>
@@ -107,7 +108,7 @@ const MainPage = ({ data }) => {
           </Container>
         </Container>
       </Paper>
-      <Container maxWidth='0' style={{ position: 'relative', zIndex: '-1', paddingTop: '5%', paddingBottom: '7%', background: '#ECF5FF' }}>
+      <Container maxWidth={false} style={{ position: 'relative', zIndex: '-1', paddingTop: '5%', paddingBottom: '7%', background: '#ECF5FF' }}>
         <Container maxWidth='lg'>
           {RenderRichText(MainPage.authorOfTheDayDesc.json)}
         </Container>
@@ -123,7 +124,7 @@ const MainPage = ({ data }) => {
       <Container maxWidth='lg' style={{ padding: '2% 10%' }}>
         {RenderRichText(MainPage.developerTeamDesc.json)}
       </Container>
-      <Container maxWidth='0' className={classes.fullWide} style={{ background: 'linear-gradient(to right, #ECF5FF 50%, #ECF5FF00 50%)' }}>
+      <Container maxWidth={false} className={classes.fullWide} style={{ background: 'linear-gradient(to right, #ECF5FF 50%, #ECF5FF00 50%)' }}>
         <Container maxWidth='lg' style={{ padding: '3% 5%', backgroundColor: '#ECF5FF' }}>
 
           <Grid
@@ -133,6 +134,8 @@ const MainPage = ({ data }) => {
             alignItems="center"
             wrap="wrap"
             spacing={5}
+
+            component='ul'
           >
             {devTeamParts()}
           </Grid>
