@@ -6,7 +6,6 @@ import { graphql } from 'gatsby';
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <appBar />
     <MainPage data={data}></MainPage>
     {/*FOOTER NAVIGATION HERE*/}
   </Layout>
