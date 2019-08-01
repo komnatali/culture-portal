@@ -14,18 +14,26 @@ const useStyles = makeStyles({
     maxWidth: 345,
     margin: 10,
     marginBottom: 30,
+    overFlow: 'hidden',
+  },
+  cardActionArea: {
+    height: '100%',
+    paddingBottom: 'auto',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
   },
   cardTitle: {
     textAlign: 'center',
     margin: 10,
     marginBottom: 20,
   },
-  cardDesc: {
-    paddingBottom: 20,
-  },
   cardMedia: {
     top: 0,
     objectPosition: 'top',
+  },
+  cardDesc: {
+    paddingBottom: 20,
   },
 });
 
@@ -40,7 +48,7 @@ export default function PhCard(props) {
 
   return (
     <Card className={classes.card} onClick={handelCardClick}>
-      <CardActionArea>
+      <CardActionArea className={classes.cardActionArea}>
         <CardMedia
           className={classes.cardMedia}
           component="img"
