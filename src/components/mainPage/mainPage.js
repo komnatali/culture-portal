@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import React from "react"
 import { Grid, Container, Card, Button, Avatar, Paper, Typography, Badge, Box } from "@material-ui/core"
-import { makeStyles} from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
 import shortid from 'shortid'
 
 
@@ -12,16 +12,18 @@ import RenderImage from '../../utils/RenderImage'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    width: '100%',
+    overflowX: 'hidden',
     '& p': {
-      fontSize: '1.2rem'
+      fontSize: '1.1rem'
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       '& h1': {
-        fontSize: '3rem',
+        fontSize: '2.5rem',
         textAlign: 'center'
       },
       '& h2': {
-        fontSize: '2rem',
+        fontSize: '1.5rem',
       }
     }
   },
@@ -46,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   fullWide: {
-    width: '100%',
+    width: '100vw',
     boxSizing: 'border-box'
   },
   rightAlignedWideBtn: {
@@ -70,7 +72,7 @@ const MainPage = ({ data }) => {
 
   let classes = useStyles()
 
-  const MainPage = data.russian.nodes[0]
+  const MainPage = data.english.nodes[0]
 
   const GithubIcon = RenderImage(classes.containerWidePic, MainPage.githubIcon.resolutions)
 
@@ -80,7 +82,7 @@ const MainPage = ({ data }) => {
     for (let i = 0; i < 7; i++) {
       arr.push(
         <Grid item key={shortid.generate()} component='li' zeroMinWidth style={{ width: '280px', minWidth: '22%', maxWidth: '90%', marginTop: '4%', listStyleType: 'none' }} >
-          <Badge className={classes.fullWide} badgeContent={<a className={classes.smallBadge} title={MainPage.githubLinks[i]} href={MainPage.githubLinks[i]}>{GithubIcon}</a>}>
+          <Badge badgeContent={<a className={classes.smallBadge} title={MainPage.githubLinks[i]} href={MainPage.githubLinks[i]}>{GithubIcon}</a>}>
             <Avatar className={classes.bigAvatar} title={MainPage.teamPhotos[i].title} src={MainPage.teamPhotos[i].resolutions.src} alt={MainPage.teamPhotos[i].title} />
           </Badge>
           <Container maxWidth={false} style={{ textAlign: 'center', padding: '3% 0 0' }}>
@@ -109,7 +111,7 @@ const MainPage = ({ data }) => {
         </Container>
       </Paper>
       <Container maxWidth={false} style={{ position: 'relative', zIndex: '-1', paddingTop: '5%', paddingBottom: '7%', background: '#ECF5FF' }}>
-        <Container maxWidth='lg' style={{ paddingLeft: '10%'}}>
+        <Container maxWidth='lg' style={{ paddingLeft: '10%' }}>
           {RenderRichText(MainPage.authorOfTheDayDesc.json)}
         </Container>
       </Container>
@@ -120,7 +122,7 @@ const MainPage = ({ data }) => {
           </Card>
         </Link>
       </Container>
-      <Button href='/photographers-list/' className={classes.rightAlignedWideBtn} style={{ margin: '2% 0' }}>{(function(){switch(MainPage.node_locale){case ('ru'): return 'Показать всех'; case ('en-US'): return 'See all'; default: throw Error('Indefined locale')} }())}</Button>
+      <Button href='/photographers-list/' className={classes.rightAlignedWideBtn} style={{ margin: '2% 0' }}>{(function () { switch (MainPage.node_locale) { case ('ru'): return 'Показать всех'; case ('en-US'): return 'See all'; default: throw Error('Indefined locale') } }())}</Button>
       <Container maxWidth='lg' style={{ padding: '2% 10%' }}>
         {RenderRichText(MainPage.developerTeamDesc.json)}
       </Container>
