@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
+    margin: 10,
     marginBottom: 30,
   },
   cardTitle: {
@@ -20,7 +21,6 @@ const useStyles = makeStyles({
     marginBottom: 20,
   },
   cardDesc: {
-    // overflow: 'hidden',
     paddingBottom: 20,
   },
   cardMedia: {
