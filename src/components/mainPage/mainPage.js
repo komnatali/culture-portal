@@ -12,7 +12,7 @@ import RenderImage from '../../utils/RenderImage'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    '& p,span': {
+    '& p': {
       fontSize: '1.2rem'
     },
     [theme.breakpoints.down('sm')]: {
@@ -50,10 +50,10 @@ const useStyles = makeStyles(theme => ({
     boxSizing: 'border-box'
   },
   rightAlignedWideBtn: {
-    width: '55%',
+    width: '56%',
     background: theme.palette.primary.light,
     position: 'relative',
-    left: '45%',
+    left: '44%',
     justifyContent: 'flex-start',
     paddingLeft: '20px',
     color: '#ffffff',
@@ -71,7 +71,7 @@ const MainPage = ({ data }) => {
   let classes = useStyles()
 
   const MainPage = data.russian.nodes[0]
-  console.log(MainPage.githubIcon)
+
   const GithubIcon = RenderImage(classes.containerWidePic, MainPage.githubIcon.resolutions)
 
   /*Function processing data for each team participant*/
@@ -109,18 +109,18 @@ const MainPage = ({ data }) => {
         </Container>
       </Paper>
       <Container maxWidth={false} style={{ position: 'relative', zIndex: '-1', paddingTop: '5%', paddingBottom: '7%', background: '#ECF5FF' }}>
-        <Container maxWidth='lg'>
+        <Container maxWidth='lg' style={{ paddingLeft: '10%'}}>
           {RenderRichText(MainPage.authorOfTheDayDesc.json)}
         </Container>
       </Container>
       <Container maxWidth='lg' style={{ marginTop: '-5%' }}>
 
-        <Link to="/photographers-list/" style={{ padding: '0 5%', display: 'block' }}>
+        <Link to="/photographers-list/" style={{ padding: '0 1%', display: 'block' }}>
           <Card style={{ height: '500px', maxHeight: '30vh' }}>
           </Card>
         </Link>
       </Container>
-      <Button href='/photographers-list/' className={classes.rightAlignedWideBtn} style={{ margin: '2% 0' }}>Увидеть всех</Button>
+      <Button href='/photographers-list/' className={classes.rightAlignedWideBtn} style={{ margin: '2% 0' }}>{(function(){switch(MainPage.node_locale){case ('ru'): return 'Показать всех'; case ('en-US'): return 'See all'; default: throw Error('Indefined locale')} }())}</Button>
       <Container maxWidth='lg' style={{ padding: '2% 10%' }}>
         {RenderRichText(MainPage.developerTeamDesc.json)}
       </Container>
