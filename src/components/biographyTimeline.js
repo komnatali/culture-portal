@@ -1,8 +1,7 @@
-import React from "react"
-import { Timeline, TimelineItem } from "vertical-timeline-component-for-react"
+import React from "react";
+import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
 
 const BiographyTimeline = ({ biographyList }) => {
-  console.log(biographyList)
   const colorsOfDates = ["#6C8CD5", "#FFD073"]
 
   const timelineItems = biographyList.map((bioItem, index) => {

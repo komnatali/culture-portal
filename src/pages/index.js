@@ -1,4 +1,5 @@
 import React from "react"
+<<<<<<< HEAD
 import '../components/reset.css'
 
 import MainPage from "../components/MainPage/"
@@ -12,6 +13,20 @@ const IndexPage = ({ data }) =>
   </>)
 
 export default IndexPage
+=======
+
+import MainPage from "../components/mainPage/index"
+import Layout from "../components/layout";
+import { graphql } from 'gatsby';
+
+const IndexPage = ({ data }) => (
+  <Layout>
+    <MainPage data={data}></MainPage>
+  </Layout>
+);
+
+export default IndexPage;
+>>>>>>> remotes/origin/master
 
 
 

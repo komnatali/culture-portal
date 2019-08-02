@@ -6,12 +6,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import LanguageIcon from '@material-ui/icons/Language';
 import Avatar from '@material-ui/core/Avatar';
 import Logo from '../images/photo-icon.png';
@@ -110,26 +107,15 @@ const useStyles = makeStyles(theme => ({
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   function handleLanguageMenuOpen(event) {
     setAnchorEl(event.currentTarget);
   }
 
-  function handleMobileMenuClose() {
-    setMobileMoreAnchorEl(null);
-  }
-
   function handleMenuClose() {
     setAnchorEl(null);
-    handleMobileMenuClose();
-  }
-
-  function handleMobileMenuOpen(event) {
-    setMobileMoreAnchorEl(event.currentTarget);
   }
 
   const menuId = 'primary-search-languages-menu';
@@ -146,30 +132,6 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleMenuClose}>En</MenuItem>
       <MenuItem onClick={handleMenuClose}>Ru</MenuItem>
       <MenuItem onClick={handleMenuClose}>By</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = 'primary-search-languages-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem onClick={handleLanguageMenuOpen}>
-        <IconButton
-          aria-label="languages"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <LanguageIcon />
-        </IconButton>
-      </MenuItem>
     </Menu>
   );
 
@@ -201,26 +163,18 @@ export default function PrimarySearchAppBar() {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-          <IconButton
-            edge="end"
-            aria-label="languages"
-            aria-controls={menuId}
-            aria-haspopup="true"
-            onClick={handleLanguageMenuOpen}
-            color="inherit"
-          >
-            <LanguageIcon />
-          </IconButton>
-        </Toolbar>
+            <IconButton
+              edge="end"
+              aria-label="languages"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleLanguageMenuOpen}
+              color="inherit"
+            >
+              <LanguageIcon />
+            </IconButton>
+          </Toolbar>
+        </Container>
       </AppBar>
       {renderMenu}
     </div>

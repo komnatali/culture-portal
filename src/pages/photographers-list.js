@@ -7,10 +7,12 @@ import Grid from '@material-ui/core/Grid';
 
 
 const photographersList = ({ data }) => {
-  const englishEdges = data.english.edges
+  const edges = data.english.edges;
+  //   const edges = data.russian.edges;
+  const classes = useStyles();
 
-  const authorsList = englishEdges.map((edge, index) => {
-    const { slug } = edge.node
+  const authorsList = edges.map((edge, index) => {
+    const { slug } = edge.node;
 
     return (
       <Grid item xs='12'>
@@ -38,7 +40,7 @@ const photographersList = ({ data }) => {
   )
 }
 
-export default photographersList
+export default photographersList;
 
 export const PhotographersQuery = graphql`
   query {
@@ -47,6 +49,43 @@ export const PhotographersQuery = graphql`
         node {
           slug
           initials
+          photo {
+            title
+            resolutions(width: 1600){
+            width
+            height
+            src
+            srcSet
+            }
+          }
+          biography {
+            internal {
+              content
+            }
+          }
+          node_locale
+        }
+      }
+    }
+    russian: allContentfulAuthors(filter: { node_locale: { eq: "ru" } }) {
+      edges {
+        node {
+          slug
+          initials
+          photo {
+            title
+            resolutions(width: 1600){
+            width
+            height
+            src
+            srcSet
+            }
+          }
+          biography {
+            internal {
+              content
+            }
+          }
           node_locale
         }
       }
