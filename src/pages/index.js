@@ -51,6 +51,7 @@ query{
               content
             }
           }
+
           node_locale
         }
       developerTeamDesc {

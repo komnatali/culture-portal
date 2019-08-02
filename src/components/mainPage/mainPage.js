@@ -8,7 +8,7 @@ import shortid from 'shortid'
 
 import RenderRichText from '../../utils/RenderRichText'
 import RenderImage from '../../utils/RenderImage'
-import PhCard from '../phCard'
+import AuthorOTDCard from './authorOTDCard'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -73,8 +73,8 @@ const MainPage = ({ data }) => {
 
   let classes = useStyles()
 
-  const MainpageData = data.russian.nodes[0]
-
+  const MainpageData = data.english.nodes[0]
+  console.log(MainpageData)
   const GithubIcon = RenderImage(classes.containerWidePic, MainpageData.githubIcon.resolutions)
 
   /*Function processing data for each team participant*/
@@ -114,7 +114,7 @@ const MainPage = ({ data }) => {
         </Container>
       </Paper>
       <Container maxWidth={false} style={{ position: 'relative', zIndex: '-1', paddingTop: '5%', paddingBottom: '7%', background: '#ECF5FF' }}>
-        <Container maxWidth='lg' style={{ paddingLeft: '20%' }}>
+        <Container maxWidth='lg' style={{ paddingLeft: '10%' }}>
           {RenderRichText(MainpageData.authorOfTheDayDesc.json)}
         </Container>
       </Container>
@@ -123,11 +123,11 @@ const MainPage = ({ data }) => {
           direction="row"
           justify="center"
           alignItems="center">
-          <PhCard
+          <AuthorOTDCard
             key={MainpageData.authorOfTheDay.initials}
-            phr={MainpageData.authorOfTheDay}
+            data={MainpageData.authorOfTheDay}
             slug={MainpageData.authorOfTheDay.slug}>
-          </PhCard>
+          </AuthorOTDCard>
         </Grid>
       </Container>
       <Button href='/photographers-list/' className={classes.rightAlignedWideBtn} style={{ margin: '2% 0' }}>{(function () { switch (MainpageData.node_locale) { case ('ru'): return 'Показать всех'; case ('en-US'): return 'See all'; default: throw Error('Indefined locale') } }())}</Button>
