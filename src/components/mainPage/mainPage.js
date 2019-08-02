@@ -8,6 +8,7 @@ import shortid from 'shortid'
 
 import RenderRichText from '../../utils/RenderRichText'
 import RenderImage from '../../utils/RenderImage'
+import PhCard from '../phCard'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -116,11 +117,16 @@ const MainPage = ({ data }) => {
         </Container>
       </Container>
       <Container maxWidth='lg' style={{ marginTop: '-5%' }}>
-
-        <Link to="/photographers-list/" style={{ padding: '0 1%', display: 'block' }}>
-          <Card style={{ height: '500px', maxHeight: '30vh' }}>
-          </Card>
-        </Link>
+        <Grid container
+          direction="row"
+          justify="center"
+          alignItems="center">
+          <PhCard
+            key={MainPage.authorOfTheDay.initials}
+            phr={MainPage.authorOfTheDay}
+            slug={MainPage.authorOfTheDay.slug}>
+          </PhCard>
+        </Grid>
       </Container>
       <Button href='/photographers-list/' className={classes.rightAlignedWideBtn} style={{ margin: '2% 0' }}>{(function () { switch (MainPage.node_locale) { case ('ru'): return 'Показать всех'; case ('en-US'): return 'See all'; default: throw Error('Indefined locale') } }())}</Button>
       <Container maxWidth='lg' style={{ padding: '2% 10%' }}>

@@ -34,6 +34,25 @@ query{
       authorOfTheDayDesc {
         json
       }
+      authorOfTheDay {
+        slug
+          initials
+          photo {
+            title
+            resolutions(width: 1600){
+            width
+            height
+            src
+            srcSet
+            }
+          }
+          biography {
+            internal {
+              content
+            }
+          }
+          node_locale
+        }
       developerTeamDesc {
         json
       }
@@ -81,6 +100,25 @@ query{
       authorOfTheDayDesc {
         json
       }
+      authorOfTheDay {
+        slug
+          initials
+          photo {
+            title
+            resolutions(width: 1600){
+            width
+            height
+            src
+            srcSet
+            }
+          }
+          biography {
+            internal {
+              content
+            }
+          }
+          node_locale
+        }
       developerTeamDesc {
         json
       }
