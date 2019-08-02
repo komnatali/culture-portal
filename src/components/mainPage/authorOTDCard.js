@@ -1,10 +1,7 @@
 import React from 'react'
 import { Link } from "gatsby"
-import { Container, Card, CardMedia, CardActionArea, CardContent, Grid, Typography, Box } from "@material-ui/core"
+import { Container, Card, CardMedia, CardActionArea, Grid, Typography, Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-
-import RenderImage from '../../utils/RenderImage'
-import RenderRichText from '../../utils/RenderRichText'
 
 
 const useStyles = makeStyles(theme => ({
