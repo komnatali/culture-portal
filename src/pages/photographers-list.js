@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const photographersList = ({ data }) => {
-  // const edges = data.english.edges;
-  const edges = data.russian.edges;
+  const edges = data.english.edges;
+//   const edges = data.russian.edges;
   const classes = useStyles();
 
   const authorsList = edges.map((edge, index) => {
