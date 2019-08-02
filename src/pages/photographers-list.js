@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "gatsby";
 import Layout from "../components/layout";
 import { graphql } from 'gatsby';
-import { Typography, Container, Grid, Paper } from '@material-ui/core';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { Typography, Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import PhCard from '../components/phCard';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 const photographersList = ({ data }) => {
   const edges = data.english.edges;
-//   const edges = data.russian.edges;
+  //   const edges = data.russian.edges;
   const classes = useStyles();
 
   const authorsList = edges.map((edge, index) => {

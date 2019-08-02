@@ -100,22 +100,15 @@ const useStyles = makeStyles(theme => ({
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   function handleLanguageMenuOpen(event) {
     setAnchorEl(event.currentTarget);
   }
 
-  function handleMobileMenuClose() {
-    setMobileMoreAnchorEl(null);
-  }
-
   function handleMenuClose() {
     setAnchorEl(null);
-    handleMobileMenuClose();
   }
 
   const menuId = 'primary-search-languages-menu';
@@ -131,30 +124,6 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={handleMenuClose}>En</MenuItem>
       <MenuItem onClick={handleMenuClose}>Ru</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = 'primary-search-languages-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem onClick={handleLanguageMenuOpen}>
-        <IconButton
-          aria-label="languages"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <LanguageIcon />
-        </IconButton>
-      </MenuItem>
     </Menu>
   );
 
