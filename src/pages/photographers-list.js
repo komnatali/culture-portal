@@ -4,6 +4,8 @@ import PrimarySearchAppBar from '../components/appBar';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
+
+
 const photographersList = ({ data }) => {
   const englishEdges = data.english.edges
 
@@ -22,6 +24,7 @@ const photographersList = ({ data }) => {
   return (
     <React.Fragment>
       <PrimarySearchAppBar />
+      
       <h1>Страница со списком фотографов</h1>
       <Grid container
             direction="column"
