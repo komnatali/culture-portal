@@ -1,9 +1,14 @@
 import React from "react";
 
 function YandexMap(props) {
-
+  const StyleWrapperMap = {
+    display: "block",
+    margin: "30px auto",
+    maxWidth: "800px",
+    height: "550px",
+  }
   return (
-    <div dangerouslySetInnerHTML={{__html: props.mapCode}}>
+    <div style={StyleWrapperMap} dangerouslySetInnerHTML={{__html: props.mapCode}}>
     </div>
   )
 }
