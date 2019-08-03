@@ -2,18 +2,21 @@ import React from "react";
 import BiographyTimeline from "./biographyTimeline";
 import Layout from "./layout";
 import { graphql } from 'gatsby';
-import VideoInformation from "./videoInformation"
+import VideoInformation from "./videoInformation";
+import YandexMap from "./yandex-map"
 
 const Photographer = ({ data }) => {
   const authorInfo = data.contentfulAuthors;
   const { biography } = authorInfo.biography;
   const { biographyList } = authorInfo;
-  const  videolink  = data.contentfulAuthors.videolink 
+  const videolink  = data.contentfulAuthors.videolink;
+  const mapCode  = data.contentfulAuthors.mapCode
 
   return (
     <Layout>
       <BiographyTimeline biographyList={biographyList} />
-      <VideoInformation videolink={videolink}/> 
+      <VideoInformation videolink={videolink}/>
+      <YandexMap mapCode={mapCode}/>  
     </Layout>
   );
 }
@@ -29,6 +32,9 @@ export const PhotographerQuery = graphql`
       biographyList
       initials
       videolink
+      mapCode {
+        mapCode
+      }
     }
   }
 `
