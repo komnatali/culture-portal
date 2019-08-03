@@ -11,32 +11,25 @@ import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import LanguageIcon from '@material-ui/icons/Language';
 import Avatar from '@material-ui/core/Avatar';
+import Container from '@material-ui/core/Container';
 import Logo from '../images/photo-icon.png';
 
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
   },
-  // menuButton: {
-  //   marginRight: theme.spacing(2),
-  // },
-  // title: {
-  //   display: 'none',
-  //   [theme.breakpoints.up('sm')]: {
-  //     display: 'block',
-  //   },
-  // },
   titleLink: {
     textDecoration: 'none',
     color: 'white',
     '&:hover': {
       color: '#e7fcff',
-    }
+    },
+    minWidth: 0,
   },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.up('md')]: {
       backgroundColor: fade(theme.palette.common.white, 0.15),
     },
     '&:hover': {
@@ -72,10 +65,10 @@ const useStyles = makeStyles(theme => ({
         width: 200,
       }
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       width: 0,
       '&:focus': {
-        width: 200,
+        width: 120,
       }
     },
   },
@@ -131,37 +124,35 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={handleMenuClose}>En</MenuItem>
       <MenuItem onClick={handleMenuClose}>Ru</MenuItem>
-      <MenuItem onClick={handleMenuClose}>By</MenuItem>
     </Menu>
   );
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" backgroundColor="red">
-        <Toolbar>
-          <Link to="/">
-            <Avatar alt="Logo" src={Logo} className={classes.bigAvatar} />
-          </Link>
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton> */}
-          <Link to="/photographers-list/" className={classes.titleLink}>
-            <Typography className={classes.title} variant="h6" noWrap>
-              Photographers of Belarus
-            </Typography>
-          </Link>
-          {/* <Typography className={classes.title} variant="h6" noWrap>
-            Photographers of Belarus
-          </Typography> */}
-          <div className={classes.grow} />
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+      <AppBar position="static">
+        <Container>
+          <Toolbar>
+            <Link to="/">
+              <Avatar alt="Logo" src={Logo} className={classes.bigAvatar} />
+            </Link>
+            <Link to="/photographers-list/" className={classes.titleLink}>
+              <Typography className={classes.title} variant="h6" noWrap>
+                Photographers of Belarus
+              </Typography>
+            </Link>
+            <div className={classes.grow} />
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}
+              />
             </div>
             <IconButton
               edge="end"

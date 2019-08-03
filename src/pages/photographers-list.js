@@ -1,10 +1,24 @@
-import React from "react"
-import { Link } from "gatsby"
-import PrimarySearchAppBar from '../components/appBar';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import React from "react";
+import Layout from "../components/layout";
+import { graphql } from 'gatsby';
+import { Typography, Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import PhCard from '../components/phCard';
 
-
+const useStyles = makeStyles((theme) => ({
+  mainTitle: {
+    textAlign: 'center',
+    margin: 15,
+    marginTop: 50,
+    marginBottom: 50,
+    fontWeight: 700
+  },
+  authorsList: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+}));
 
 const photographersList = ({ data }) => {
   const edges = data.english.edges;
@@ -15,29 +29,27 @@ const photographersList = ({ data }) => {
     const { slug } = edge.node;
 
     return (
-      <Grid item xs='12'>
-        <Paper className='paper' key={index.toString()}>
-        <li><Link to={slug}>{edge.node.initials}</Link></li>
-        </Paper>
-      </Grid>
-    )
+      <PhCard
+        key={edge.node.initials}
+        phr={edge.node}
+        slug={slug}
+      >
+      </PhCard >
+    );
   })
 
   return (
-    <React.Fragment>
-      <PrimarySearchAppBar />
-      
-      <h1>Страница со списком фотографов</h1>
-      <Grid container
-            direction="column"
-            justify="flex-start"
-            alignItems="flex-start"
-            >
-      <ul className="authors-list">{authorsList}</ul>
-      </Grid>
-      <Link to="/">Go back to the homepage</Link>
-    </React.Fragment>
-  )
+    <Layout>
+      <Container>
+        <Typography className={classes.mainTitle} variant='h4' gutterBottom>
+          Photographers of Belarus
+        </Typography>
+        <Container className={classes.authorsList}>
+          {authorsList}
+        </Container>
+      </Container>
+    </Layout>
+  );
 }
 
 export default photographersList;

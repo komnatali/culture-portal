@@ -2,6 +2,7 @@ import React from "react";
 import BiographyTimeline from "./biographyTimeline";
 import Layout from "./layout";
 import { graphql } from 'gatsby';
+import AuthorPage from '../components/authorPage';
 
 const Photographer = ({ data }) => {
   const authorInfo = data.contentfulAuthors;
@@ -10,12 +11,9 @@ const Photographer = ({ data }) => {
 
   return (
     <Layout>
+      <AuthorPage/>
       <BiographyTimeline biographyList={biographyList} />
-<<<<<<< HEAD
-    </div>
-=======
     </Layout>
->>>>>>> remotes/origin/master
   );
 }
 
