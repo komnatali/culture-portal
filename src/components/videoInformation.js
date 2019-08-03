@@ -20,7 +20,7 @@ export default class VideoInformation extends React.Component {
     const linkImage = `https://img.youtube.com/vi/${this.props.videolink}/hqdefault.jpg` 
     const StyleButtonVideo = {
       display: "block",
-      margin: "30px auto",
+      margin: "100px auto",
       maxWidth: "800px",
       height: "550px",  
       cursor: "pointer" 

@@ -10,7 +10,7 @@ const Photographer = ({ data }) => {
   const { biography } = authorInfo.biography;
   const { biographyList } = authorInfo;
   const videolink  = data.contentfulAuthors.videolink;
-  const mapCode  = data.contentfulAuthors.mapCode
+  const { mapCode }  = authorInfo.mapCode
 
   return (
     <Layout>
