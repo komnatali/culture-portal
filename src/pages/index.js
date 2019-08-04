@@ -1,4 +1,5 @@
 import React from "react"
+
 import MainPage from "../components/mainPage/index"
 import Layout from "../components/layout";
 import { graphql } from 'gatsby';
@@ -6,7 +7,6 @@ import { graphql } from 'gatsby';
 const IndexPage = ({ data }) => (
   <Layout>
     <MainPage data={data}></MainPage>
-    {/*FOOTER NAVIGATION HERE*/}
   </Layout>
 );
 
@@ -34,6 +34,26 @@ query{
       authorOfTheDayDesc {
         json
       }
+      authorOfTheDay {
+        slug
+          initials
+          photo {
+            title
+            resolutions(width: 1600){
+            width
+            height
+            src
+            srcSet
+            }
+          }
+          biography {
+            internal {
+              content
+            }
+          }
+
+          node_locale
+        }
       developerTeamDesc {
         json
       }
@@ -81,6 +101,25 @@ query{
       authorOfTheDayDesc {
         json
       }
+      authorOfTheDay {
+        slug
+          initials
+          photo {
+            title
+            resolutions(width: 1600){
+            width
+            height
+            src
+            srcSet
+            }
+          }
+          biography {
+            internal {
+              content
+            }
+          }
+          node_locale
+        }
       developerTeamDesc {
         json
       }
