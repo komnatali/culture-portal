@@ -14,6 +14,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
 import Logo from '../images/photo-icon.png';
 import { connect } from 'react-redux';
+import { toggleEnMode } from '../state/app';
 
 const useStyles = makeStyles(theme => ({
   grow: {
