@@ -43,7 +43,7 @@ const Photographer = ({isEnMode, dispatch, data }) => {
 
 
 export default connect(state => ({
-  isEnMode: state.app.isEnMode
+  isEnMode:  state.app.isEnMode
 }), null)(Photographer);
 
 export const PhotographerQuery = graphql`
