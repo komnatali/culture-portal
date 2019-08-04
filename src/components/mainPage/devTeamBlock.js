@@ -1,7 +1,5 @@
-import { Link } from "gatsby"
-import { Helmet } from "react-helmet"
 import React from "react"
-import { Grid, Container, Card, Button, Avatar, Paper, Typography, Badge, Box } from "@material-ui/core"
+import { Grid, Container, Avatar, Typography, Badge } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import shortid from 'shortid'
 

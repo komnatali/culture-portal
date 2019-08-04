@@ -6,6 +6,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import PhCard from '../components/phCard';
 import SearchIcon from '@material-ui/icons/Search';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   mainTitle: {
@@ -63,10 +64,20 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const photographersList = ({ data }) => {
-  const edges = data.english.edges;
-  //   const edges = data.russian.edges;
+const photographersList = ({isEnMode, dispatch, data}) => {
+
   const classes = useStyles();
+
+  let edges;
+  let title;
+
+  if(isEnMode) {
+    edges = data.english.edges;
+    title = 'Photographers of Belarus';
+  } else {
+    edges = data.russian.edges;
+    title = 'Фотографы Беларуси';
+  }
 
   const authorsList = edges.map((edge, index) => {
     const { slug } = edge.node;
@@ -99,7 +110,7 @@ const photographersList = ({ data }) => {
     <Layout>
       <Container>
         <Typography className={classes.mainTitle} variant='h4' gutterBottom>
-          Photographers of Belarus
+          {title}
         </Typography>
 
         <div className={classes.search}>
@@ -125,8 +136,9 @@ const photographersList = ({ data }) => {
   );
 }
 
-
-export default photographersList;
+export default connect(state => ({
+  isEnMode: state.app.isEnMode
+}), null)(photographersList);
 
 export const PhotographersQuery = graphql`
   query {

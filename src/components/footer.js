@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { connect } from 'react-redux';
 
 function MadeWithLove() {
   return (
@@ -29,15 +30,22 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Footer() {
+const Footer = ({isEnMode, dispatch}) => {
   const classes = useStyles();
+  let footerText = isEnMode ? 'Group' : 'Группа';
 
   return (
     <footer className={classes.footer}>
       <Container maxWidth="sm">
-        <Typography variant="body1" style={{ textAlign: 'center' }}>Group 16, 2019</Typography>
+        <Typography variant="body1" style={{ textAlign: 'center' }}>
+        {footerText} 16, 2019
+          </Typography>
         <MadeWithLove />
       </Container>
     </footer>
   );
 }
+
+export default connect(state => ({
+  isEnMode: state.app.isEnMode
+}), null)(Footer);

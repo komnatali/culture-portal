@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import MainBlock from './mainBlock';
 import AuthorOTDBlock from './authorOTDBlock';
 import DevTeamBlock from './devTeamBlock';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,10 +26,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MainPage = ({ data }) => {
+const MainPage = ({isEnMode, dispatch, data }) => {
   let classes = useStyles()
 
-  const MainpageData = data.english.nodes[0]
+  let dataLng;
+ 
+  if(isEnMode) {
+    dataLng = data.english;
+  } else {
+    dataLng = data.russian;
+  }
+
+  const MainpageData = dataLng.nodes[0]
   const MainBlockdata = {
     title: MainpageData.title,
     desc: MainpageData.desc,
@@ -61,4 +70,6 @@ const MainPage = ({ data }) => {
   )
 }
 
-export default MainPage
+export default connect(state => ({
+  isEnMode: state.app.isEnMode
+}), null)(MainPage);
