@@ -5,9 +5,10 @@ function YandexMap(props) {
     display: "block",
     margin: "100px auto",
     maxWidth: "800px",
+    width: "100%",
     height: "550px",
   }
-  console.log('props', props.mapCode)
+  
   return (
     <div style={StyleWrapperMap} dangerouslySetInnerHTML={{__html: props.mapCode}}>     
     </div>
