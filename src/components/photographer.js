@@ -7,15 +7,25 @@ import PhotographerInfo from "./PhotographerInfo";
 import PhotoGallery from "./photoGallery";
 import YandexMap from "./yandex-map";
 import WorksList from "./worksList";
+import { connect } from 'react-redux';
 
-const Photographer = ({ data }) => {
-  const authorInfo = data.contentfulAuthors;
+const Photographer = ({isEnMode, dispatch, data }) => {
+
+  let dataLng;
+  
+  if(isEnMode) {
+    dataLng = data.english;
+  } else {
+    dataLng = data.russian;
+  }
+  
+  const authorInfo = dataLng;
   const years = authorInfo.yearsOfLife;
   const works = authorInfo.works;
   const workExamples = authorInfo.workExamples || [];
   const { biography } = authorInfo.biography;
   const { biographyList } = authorInfo;
-  const videolink  = data.contentfulAuthors.videolink;
+  const videolink  = authorInfo.videolink;
   const { mapCode }  = authorInfo.mapCode
 
 
@@ -31,40 +41,75 @@ const Photographer = ({ data }) => {
   );
 }
 
-export default Photographer;
+
+export default connect(state => ({
+  isEnMode: state.app.isEnMode
+}), null)(Photographer);
 
 export const PhotographerQuery = graphql`
-  query($slug: String!) {
-    contentfulAuthors(slug: { eq: $slug }) {
-      biography {
-        biography
-      }
-      biographyList
-      initials
-      videolink
-      yearsOfLife
-      mapCode {
-        mapCode
-      }
-      photo {
-        title
-        resolutions(width: 1600){
-          width
-          height
-          src
-          srcSet
-        }
-      }
-      workExamples {
-        id
-        title
-        file {
-          url
-        }
-      }
-      works {
-        json
+query($slug: String!) {
+  english: contentfulAuthors(slug: { eq: $slug }, node_locale: { eq: "en-US" } ) {
+    biography {
+      biography
+    }
+    biographyList
+    initials
+    videolink
+    yearsOfLife
+    mapCode {
+      mapCode
+    }
+    photo {
+      title
+      resolutions(width: 1600){
+        width
+        height
+        src
+        srcSet
       }
     }
+    workExamples {
+      id
+      title
+      file {
+        url
+      }
+    }
+    works {
+      json
+    }
   }
+
+  russian: contentfulAuthors(slug: { eq: $slug }, node_locale: { eq: "ru" } ) {
+    biography {
+      biography
+    }
+    biographyList
+    initials
+    videolink
+    yearsOfLife
+    mapCode {
+      mapCode
+    }
+    photo {
+      title
+      resolutions(width: 1600){
+        width
+        height
+        src
+        srcSet
+      }
+    }
+    workExamples {
+      id
+      title
+      file {
+        url
+      }
+    }
+    works {
+      json
+    }
+  }
+}
 `
