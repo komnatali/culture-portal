@@ -152,7 +152,7 @@ const PrimarySearchAppBar = ({isDarkMode, dispatch}) => {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search…"
+                placeholder={search}
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
