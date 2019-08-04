@@ -141,7 +141,7 @@ export default function PrimarySearchAppBar() {
               </Typography>
             </Link>
             <div className={classes.grow} />
-            <div className={classes.search}>
+            {/* <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
@@ -153,7 +153,7 @@ export default function PrimarySearchAppBar() {
                 }}
                 inputProps={{ 'aria-label': 'search' }}
               />
-            </div>
+            </div> */}
             <IconButton
               edge="end"
               aria-label="languages"
