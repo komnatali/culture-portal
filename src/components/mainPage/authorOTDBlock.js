@@ -2,12 +2,29 @@ import React from "react"
 import { Grid, Container, Button } from "@material-ui/core"
 
 import AuthorOTDCard from './authorOTDCard'
-import MainpageStyles from "./MainpageStyles"
 import RenderRichText from '../../utils/RenderRichText'
+import { makeStyles } from "@material-ui/core/styles"
+
+const useStyles = makeStyles((theme) => ({
+  rightAlignedWideBtn: {
+    width: '56%',
+    background: theme.palette.primary.light,
+    position: 'relative',
+    left: '44%',
+    justifyContent: 'flex-start',
+    paddingLeft: '20px',
+    color: '#ffffff',
+    '&:hover': {
+      background: theme.palette.primary.main,
+      color: '#ffffff',
+    }
+  }
+}));
 
 const AuthorOTDBlock = ({ data }) => {
-  let authorOTDdata = data
-  let classes = MainpageStyles()
+  let authorOTDdata = data;
+  let classes = useStyles();
+
   return (
     <>
       <Container maxWidth={false} style={{ position: 'relative', zIndex: '-1', paddingTop: '5%', paddingBottom: '7%', background: '#ECF5FF' }}>

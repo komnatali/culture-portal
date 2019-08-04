@@ -1,21 +1,32 @@
-import { Link } from "gatsby"
-import { Helmet } from "react-helmet"
-import React from "react"
-import { Grid, Container, Card, Button, Avatar, Paper, Typography, Badge, Box } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
-import shortid from 'shortid'
+import { Helmet } from "react-helmet";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import MainBlock from './mainBlock';
+import AuthorOTDBlock from './authorOTDBlock';
+import DevTeamBlock from './devTeamBlock';
 
-
-import RenderRichText from '../../utils/RenderRichText'
-import RenderImage from '../../utils/RenderImage'
-import MainBlock from './mainBlock'
-import AuthorOTDBlock from './authorOTDBlock'
-import MainpageStyles from "./MainpageStyles";
-import DevTeamBlock from './devTeamBlock'
-
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    width: '100%',
+    overflowX: 'hidden',
+    '& p': {
+      fontSize: '1.1rem'
+    },
+    [theme.breakpoints.down('md')]: {
+      '& h1': {
+        fontSize: '2.5rem',
+        textAlign: 'center'
+      },
+      '& h2': {
+        fontSize: '1.5rem',
+      }
+    }
+  },
+}));
 
 const MainPage = ({ data }) => {
-  let classes = MainpageStyles()
+  let classes = useStyles()
 
   const MainpageData = data.english.nodes[0]
   const MainBlockdata = {
