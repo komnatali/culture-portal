@@ -3,6 +3,9 @@
   "private": true,
   "description": "A website about photographers of Belarus",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.3.0"
+  },
   "author": "group-16-rss-2019Q1",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.2.0",
@@ -45,7 +48,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "heroku-postbuild": "gatsby build"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,5 @@
 import mainPage from './mainPage';
 
-export default mainPage;
+
+
+export default MainPage;
