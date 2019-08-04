@@ -5,12 +5,14 @@ import { graphql } from 'gatsby';
 import VideoInformation from "./videoInformation";
 import PhotographerInfo from "./PhotographerInfo";
 import PhotoGallery from "./photoGallery";
-import YandexMap from "./yandex-map"
+import YandexMap from "./yandex-map";
+import WorksList from "./worksList";
 
 const Photographer = ({ data }) => {
   const authorInfo = data.contentfulAuthors;
   const years = authorInfo.yearsOfLife;
-  const workExamples = data.contentfulAuthors.workExamples || [];
+  const works = authorInfo.works;
+  const workExamples = authorInfo.workExamples || [];
   const { biography } = authorInfo.biography;
   const { biographyList } = authorInfo;
   const videolink  = data.contentfulAuthors.videolink;
@@ -22,6 +24,7 @@ const Photographer = ({ data }) => {
       <PhotographerInfo photo={authorInfo.photo} initials={authorInfo.initials} bio={biography} years={years} />      
       <BiographyTimeline biographyList={biographyList} />
       <PhotoGallery photos={workExamples}/>
+      <WorksList works={works}/>
       <VideoInformation videolink={videolink}/>
       <YandexMap mapCode={mapCode}/>  
     </Layout>
@@ -58,6 +61,9 @@ export const PhotographerQuery = graphql`
         file {
           url
         }
+      }
+      works {
+        json
       }
     }
   }
