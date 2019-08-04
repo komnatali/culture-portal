@@ -148,7 +148,7 @@ const PrimarySearchAppBar = ({isEnMode, dispatch}) => {
               </Typography>
             </Link>
             <div className={classes.grow} />
-            <div className={classes.search}>
+            {/* <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
@@ -160,7 +160,7 @@ const PrimarySearchAppBar = ({isEnMode, dispatch}) => {
                 }}
                 inputProps={{ 'aria-label': 'search' }}
               />
-            </div>
+            </div> */}
             <IconButton
               edge="end"
               aria-label="languages"
