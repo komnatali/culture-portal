@@ -113,10 +113,12 @@ const PrimarySearchAppBar = ({isEnMode, dispatch}) => {
     setAnchorEl(event.currentTarget);
   }
 
-  function handleMenuClose() {
+  function handleMenuClose(event) {
     setAnchorEl(null);
-    dispatch(toggleEnMode(!isEnMode));
+    if(event.target.innerText === "En") dispatch(toggleEnMode(true));
+    else dispatch(toggleEnMode(false));
   }
+
 
   const menuId = 'primary-search-languages-menu';
   const renderMenu = (
