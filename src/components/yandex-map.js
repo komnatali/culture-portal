@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 function YandexMap(props) {
   const StyleWrapperMap = {
     display: "block",
-    margin: "100px auto",
+    margin: "0 auto",
     maxWidth: "800px",
     width: "100%",
     height: "550px",
