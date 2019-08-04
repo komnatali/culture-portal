@@ -28,6 +28,7 @@ export default class VideoInformation extends React.Component {
     
     return (
       <div style={StyleButtonVideo}>
+        <Typography className={classes.galleryHeading} gutterBottom variant="h4" component="h3" align="center">Photo Gallery</Typography>
         <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId={this.props.videolink} onClose={() => this.setState({isOpen: false})} />
         <img style={{maxWidth: "100%", height: "550px"}}  src={linkImage}  onClick={this.openModal}/>          
       </div>

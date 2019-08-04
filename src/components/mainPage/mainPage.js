@@ -1,12 +1,11 @@
-import { Link } from "gatsby"
-import { Helmet } from "react-helmet"
-import React from "react"
-import { Grid, Container, Card, Button, Avatar, Paper, Typography, Badge, Box } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
-import shortid from 'shortid'
+import { Helmet } from "react-helmet";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import MainBlock from './mainBlock';
+import AuthorOTDBlock from './authorOTDBlock';
+import DevTeamBlock from './devTeamBlock';
 import RenderRichText from '../../utils/RenderRichText'
 import RenderImage from '../../utils/RenderImage'
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -67,7 +66,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const MainPage = ({ data }) => {
-
+  let classes = MainpageStyles()
   let classes = useStyles()
 
   const MainPage = data.english.nodes[0]
@@ -120,7 +119,7 @@ const MainPage = ({ data }) => {
           </Card>
         </Link>
       </Container>
-      <Button href='/photographers-list/' className={classes.rightAlignedWideBtn} style={{ margin: '2% 0' }}>{(function () { switch (MainPage.node_locale) { case ('ru'): return 'Показать всех'; case ('en-US'): return 'See all'; default: throw Error('Indefined locale') } }())}</Button>
+      <Button href='/photographers-list/' className={classes.rightAlignedWideBtn} style={{ margin: '2% 0' }}>{(function () { switch (MainPage.node_locale) { case ('ru'): return '�������� ����'; case ('en-US'): return 'See all'; default: throw Error('Indefined locale') } }())}</Button>
       <Container maxWidth='lg' style={{ padding: '2% 10%' }}>
         {RenderRichText(MainPage.developerTeamDesc.json)}
       </Container>
