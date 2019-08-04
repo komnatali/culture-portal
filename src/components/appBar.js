@@ -13,6 +13,8 @@ import LanguageIcon from '@material-ui/icons/Language';
 import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
 import Logo from '../images/photo-icon.png';
+import { connect } from 'react-redux';
+import { toggleEnMode } from '../state/app';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -97,10 +99,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+const PrimarySearchAppBar = ({isEnMode, dispatch}) => {
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+  let title = isEnMode ? 'Photographers of Belarus' : 'Фотографы Беларуси';
+  let search = isEnMode ? 'Search...' : 'Поиск';
+  
   const isMenuOpen = Boolean(anchorEl);
 
   function handleLanguageMenuOpen(event) {
@@ -109,6 +115,7 @@ export default function PrimarySearchAppBar() {
 
   function handleMenuClose() {
     setAnchorEl(null);
+    dispatch(toggleEnMode(!isEnMode));
   }
 
   const menuId = 'primary-search-languages-menu';
@@ -137,7 +144,7 @@ export default function PrimarySearchAppBar() {
             </Link>
             <Link to="/photographers-list/" className={classes.titleLink}>
               <Typography className={classes.title} variant="h6" noWrap>
-                Photographers of Belarus
+              {title}
               </Typography>
             </Link>
             <div className={classes.grow} />
@@ -146,7 +153,7 @@ export default function PrimarySearchAppBar() {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search…"
+                placeholder={search}
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
@@ -171,3 +178,7 @@ export default function PrimarySearchAppBar() {
     </div>
   );
 }
+
+export default connect(state => ({
+  isEnMode: state.app.isEnMode
+}), null)(PrimarySearchAppBar);
