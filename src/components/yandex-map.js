@@ -10,6 +10,7 @@ function YandexMap(props) {
   }
   
   return (
+    
     <div style={StyleWrapperMap} dangerouslySetInnerHTML={{__html: props.mapCode}}>     
     </div>
   )
