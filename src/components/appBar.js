@@ -113,9 +113,10 @@ const PrimarySearchAppBar = ({isEnMode, dispatch}) => {
     setAnchorEl(event.currentTarget);
   }
 
-  function handleMenuClose() {
+  function handleMenuClose(event) {
     setAnchorEl(null);
-    dispatch(toggleEnMode(!isEnMode));
+    if(event.target.innerText === "En") dispatch(toggleEnMode(true));
+    else dispatch(toggleEnMode(false));
   }
 
   const menuId = 'primary-search-languages-menu';
@@ -148,7 +149,7 @@ const PrimarySearchAppBar = ({isEnMode, dispatch}) => {
               </Typography>
             </Link>
             <div className={classes.grow} />
-            {/* <div className={classes.search}>
+            <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
@@ -160,7 +161,7 @@ const PrimarySearchAppBar = ({isEnMode, dispatch}) => {
                 }}
                 inputProps={{ 'aria-label': 'search' }}
               />
-            </div> */}
+            </div>
             <IconButton
               edge="end"
               aria-label="languages"
