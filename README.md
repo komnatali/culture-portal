@@ -12,10 +12,10 @@
     + 20 (from 0 to 20 Design);
     + 20 material-ui / bootstrap is used
   ## Extra scope - 70
-    10 Confidence of the project presentation;
+      10 Confidence of the project presentation;
     + 30 Project is made using gatsbyjs;
     + 20 contentful / netlify cms is used for content management
-    10 Portal has third language;
+      10 Portal has third language;
 
     (230)
 
