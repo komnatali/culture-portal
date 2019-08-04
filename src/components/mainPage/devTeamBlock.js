@@ -6,11 +6,37 @@ import { makeStyles } from "@material-ui/core/styles"
 import shortid from 'shortid'
 
 import RenderRichText from '../../utils/RenderRichText'
-import RenderImage from '../../utils/RenderImage'
-import MainpageStyles from "./MainpageStyles";
+import RenderImage from '../../utils/RenderImage';
+
+const useStyles = makeStyles((theme) => ({
+  bigAvatar: {
+    width: 200,
+    height: 200,
+    border: `2px solid ${theme.palette.primary.main}`
+  },
+  smallBadge: {
+    width: 45,
+    height: 45,
+    marginTop: 50,
+    marginRight: 25,
+    transition: 'all .1s ease-in',
+    '&:hover': {
+      transform: 'scale(1.2)',
+      transition: 'all .1s ease-in'
+    }
+  },
+  containerWidePic: {
+    width: '100%',
+    height: 'auto',
+  },
+  fullWide: {
+    width: '100vw',
+    boxSizing: 'border-box'
+  },
+}));
 
 const DevTeamBlock = ({ data }) => {
-  let classes = MainpageStyles()
+  const classes = useStyles();
 
   const DevTeamBlockData = data
   const GithubIcon = RenderImage(classes.containerWidePic, DevTeamBlockData.githubIcon.resolutions)
@@ -23,7 +49,7 @@ const DevTeamBlock = ({ data }) => {
         <Grid item key={shortid.generate()} component='li' zeroMinWidth style={{ width: '280px', minWidth: '22%', maxWidth: '90%', marginTop: '4%', listStyleType: 'none' }} >
           <a title={DevTeamBlockData.githubLinks[i]} href={DevTeamBlockData.githubLinks[i]} target='_blank' rel="noopener noreferrer">
             <Badge badgeContent={<div className={classes.smallBadge}>{GithubIcon}</div>}>
-              <Avatar className={classes.bigAvatar} title={DevTeamBlockData.photos[i].title} src={DevTeamBlockData.photos[i].resolutions.src} alt={DevTeamBlockData.photos[i].title} />
+              <Avatar className={classes.bigAvatar} src={DevTeamBlockData.photos[i].resolutions.src} alt={DevTeamBlockData.photos[i].title} />
             </Badge>
           </a>
           <Container maxWidth={false} style={{ textAlign: 'center', padding: '3% 0 0' }}>
