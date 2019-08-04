@@ -98,7 +98,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const PrimarySearchAppBar = ({isDarkMode, dispatch}) => {
+const PrimarySearchAppBar = ({isEnMode, dispatch}) => {
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -114,7 +114,7 @@ const PrimarySearchAppBar = ({isDarkMode, dispatch}) => {
 
   function handleMenuClose() {
     setAnchorEl(null);
-    dispatch(toggleDarkMode(!isEnMode));
+    dispatch(toggleEnMode(!isEnMode));
   }
 
   const menuId = 'primary-search-languages-menu';
@@ -179,5 +179,5 @@ const PrimarySearchAppBar = ({isDarkMode, dispatch}) => {
 }
 
 export default connect(state => ({
-  isDarkMode: state.app.isEnMode
+  isEnMode: state.app.isEnMode
 }), null)(PrimarySearchAppBar);

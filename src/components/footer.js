@@ -30,9 +30,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Footer = ({isDarkMode, dispatch}) => {
+const Footer = ({isEnMode, dispatch}) => {
   const classes = useStyles();
-  let footerText = isDarkMode ? 'Group' : 'Группа';
+  let footerText = isEnMode ? 'Group' : 'Группа';
 
   return (
     <footer className={classes.footer}>
@@ -47,5 +47,5 @@ const Footer = ({isDarkMode, dispatch}) => {
 }
 
 export default connect(state => ({
-  isDarkMode: state.app.isDarkMode
+  isEnMode: state.app.isEnMode
 }), null)(Footer);

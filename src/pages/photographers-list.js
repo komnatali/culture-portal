@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const photographersList = ({isDarkMode, dispatch, data}) => {
+const photographersList = ({isEnMode, dispatch, data}) => {
 
   const classes = useStyles();
 
@@ -64,7 +64,7 @@ const photographersList = ({isDarkMode, dispatch, data}) => {
 }
 
 export default connect(state => ({
-  isDarkMode: state.app.isEnMode
+  isEnMode: state.app.isEnMode
 }), null)(photographersList);
 
 export const PhotographersQuery = graphql`
