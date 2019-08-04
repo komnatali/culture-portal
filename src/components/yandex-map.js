@@ -1,6 +1,5 @@
 import React from "react";
 import { Typography } from '@material-ui/core';
-
 function YandexMap(props) {
   const StyleWrapperMap = {
     display: "block",
@@ -11,10 +10,9 @@ function YandexMap(props) {
   }
   
   return (
-    <div>
-    <div><Typography gutterBottom variant="h4" component="h3" align="center">Location</Typography></div>
-    <div style={StyleWrapperMap} dangerouslySetInnerHTML={{__html: props.mapCode}}>     
-    </div></div>
+    <div><Typography gutterBottom variant="h4" component="h3" align="center">Location</Typography>
+    <div style={StyleWrapperMap} dangerouslySetInnerHTML={{__html: props.mapCode}}></div>
+    </div>
   )
 }
 

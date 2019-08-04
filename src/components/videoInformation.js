@@ -29,10 +29,10 @@ export default class VideoInformation extends React.Component {
     
     return (
       <div style={StyleButtonVideo}>
-        <div><Typography gutterBottom variant="h4" component="h3" align="center" >Video</Typography></div>
+        <Typography gutterBottom variant="h4" component="h3" align="center" >Video</Typography>
         <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId={this.props.videolink} onClose={() => this.setState({isOpen: false})} />
-        <img style={{maxWidth: "100%", height: "550px"}}  src={linkImage}  onClick={this.openModal}/>          
-      </div>
+        <img style={{maxWidth: "100%", height: "550px"}}  src={linkImage}  onClick={this.openModal}/>
+</div>
     )
   }
 }
