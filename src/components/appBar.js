@@ -13,6 +13,7 @@ import LanguageIcon from '@material-ui/icons/Language';
 import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
 import Logo from '../images/photo-icon.png';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -97,10 +98,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+const PrimarySearchAppBar = ({isDarkMode, dispatch}) => {
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+  let title = isEnMode ? 'Photographers of Belarus' : 'Фотографы Беларуси';
+  let search = isEnMode ? 'Search...' : 'Поиск';
+  
   const isMenuOpen = Boolean(anchorEl);
 
   function handleLanguageMenuOpen(event) {
@@ -109,6 +114,7 @@ export default function PrimarySearchAppBar() {
 
   function handleMenuClose() {
     setAnchorEl(null);
+    dispatch(toggleDarkMode(!isEnMode));
   }
 
   const menuId = 'primary-search-languages-menu';
@@ -137,7 +143,7 @@ export default function PrimarySearchAppBar() {
             </Link>
             <Link to="/photographers-list/" className={classes.titleLink}>
               <Typography className={classes.title} variant="h6" noWrap>
-                Photographers of Belarus
+              {title}
               </Typography>
             </Link>
             <div className={classes.grow} />
@@ -171,3 +177,7 @@ export default function PrimarySearchAppBar() {
     </div>
   );
 }
+
+export default connect(state => ({
+  isDarkMode: state.app.isEnMode
+}), null)(PrimarySearchAppBar);
