@@ -35,6 +35,7 @@ export const PhotographerQuery = graphql`
       biographyList
       initials
       videolink
+      yearsOfLife
       mapCode {
         mapCode
       }
