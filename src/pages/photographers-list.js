@@ -93,6 +93,11 @@ const photographersList = ({isEnMode, dispatch, data}) => {
   });
 
   let [filteredList, setFilteredList] = useState(authorsList);
+  if (filteredList[0]) {
+    const filteredLanguage = filteredList[0].props.phr.node_locale;
+    const currentLanguage = authorsList[0].props.phr.node_locale;
+    if (filteredLanguage !== currentLanguage) setFilteredList(authorsList);
+  }
 
 
   const handleSearch = function (event) {

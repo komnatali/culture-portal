@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -21,22 +22,27 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-const PhotoGallery = (props) => {
+const PhotoGallery = ({isEnMode, photos}) => {
   const classes = useStyles();
-  const { photos } = props;
-  
+  let title = isEnMode ? 'Photo Gallery' : 'Фотогалерея';
+
   return (
     <div className={classes.photoGallery}>
-      <Typography className={classes.galleryHeading} gutterBottom variant="h4" component="h3" align="center">Photo Gallery</Typography>
+      <Typography className={classes.galleryHeading} gutterBottom variant="h4" component="h3" align="center">{title}</Typography>
       <GridList cellHeight={320} className={classes.gridList} cols={2.5}>
         {photos.map(tile => (
           <GridListTile key={tile.id}>
+            { !!tile.file &&
             <img src={tile.file.url} alt={tile.title} />
+            }
           </GridListTile>
-        ))}
+        )
+        )}
       </GridList>
     </div>
   );
 }
 
-export default PhotoGallery;
+export default connect(state => ({
+  isEnMode:  state.app.isEnMode
+}), null)(PhotoGallery);

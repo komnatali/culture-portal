@@ -1,9 +1,11 @@
 import React from "react";
+import { connect } from 'react-redux';
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
 import { Typography, Container } from '@material-ui/core';
 
-const BiographyTimeline = ({ biographyList }) => {
+const BiographyTimeline = ({isEnMode, biographyList }) => {
   const colorsOfDates = ["#ABBEEA", "#6577A0"]
+  let title = isEnMode ? 'Biography' : 'Биография';
   
   const timelineItems = biographyList.map((bioItem, index) => {
     const firstLetter = bioItem.search(/[a-zа-я]/i)
@@ -26,7 +28,7 @@ const BiographyTimeline = ({ biographyList }) => {
   return (
     <Container>
       <Typography variant='h4' align="center">
-        Biography
+        {title}
       </Typography>
       <Timeline lineColor={"#ddd"}>{timelineItems}</Timeline>
     </Container>
@@ -34,5 +36,6 @@ const BiographyTimeline = ({ biographyList }) => {
 
 }
 
-
-export default BiographyTimeline
+export default connect(state => ({
+  isEnMode:  state.app.isEnMode
+}), null)(BiographyTimeline);
