@@ -1,4 +1,5 @@
 # Collaborative project for Rolling Scopes School
+What is Rolling Scopes School? - [link](https://rs.school/)
   ## Min scope - 40
     + 10 Main page + page with a list of authors + author's page (only html);
     + 10 Page with list of authors contains search widget;
